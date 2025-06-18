@@ -1,0 +1,1014 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary-black: #121212;
+    --secondary-black: #1E1E1E;
+    --accent-color: #BB86FC;
+    --text-color: #FFFFFF;
+    --hover-color: #03DAC6;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: var(--primary-black);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--primary-black);
+    background-image: url('Picture1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.login-box {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    transition: all 0.4s ease;
+}
+
+.login-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: var(--accent-color);
+    font-size: 2.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: 1px solid rgba(187, 134, 252, 0.3);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
+}
+
+.form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--accent-color);
+    color: var(--primary-black);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.form button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(187, 134, 252, 0.3);
+}
+
+.message {
+    margin-top: 20px;
+    color: var(--hover-color);
+    font-size: 0.9rem;
+}
+
+.logout-section {
+    text-align: center;
+}
+
+.logout-section h3 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+#logoutBtn {
+    background-color: var(--hover-color);
+    color: var(--primary-black);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+#logoutBtn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(3, 218, 198, 0.3);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.nav-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: 1px solid rgba(187, 134, 252, 0.3);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn i {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+.nav-btn:hover {
+    background-color: rgba(187, 134, 252, 0.1);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+}
+
+.modal-content {
+    background-color: var(--secondary-black);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+}
+
+.close-btn {
+    color: var(--accent-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--hover-color);
+}
+
+/* About Modal Styles */
+#aboutModal .modal-content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Contact Modal Styles */
+#contactModal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#contactModal input,
+#contactModal textarea {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    border: 1px solid rgba(187, 134, 252, 0.3);
+    border-radius: 5px;
+}
+
+#contactModal textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#contactModal .contact-info {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(187, 134, 252, 0.2);
+}
+
+#contactModal .contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+#contactModal .contact-info i {
+    color: var(--accent-color);
+}
+
+/* Help Modal Styles */
+.help-section details {
+    margin-bottom: 15px;
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.help-section summary {
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    color: var(--accent-color);
+}
+
+.help-section details p {
+    margin-top: 10px;
+    padding-left: 15px;
+    color: var(--text-color);
+}
+
+.support-contact {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgba(187, 134, 252, 0.2);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% 2.5%;
+        padding: 20px;
+    }
+
+    .login-box {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Subtle Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+    .container {
+        width: 90%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .login-box {
+        padding: 25px;
+        border-radius: 10px;
+        background-color: rgba(30, 30, 30, 0.85);
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .form input,
+    .form button,
+    #logoutBtn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .logo {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+/* Ensure background covers different screen sizes */
+@media screen and (max-width: 1200px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .login-box {
+        background-color: rgba(30, 30, 30, 0.8);
+    }
+}
+
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    max-width: 200px;
+    max-height: 200px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 3px solid rgba(187, 134, 252, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Vision & Mission, Blotter Process, and Residency Process Modal Styles */
+#visionMissionModal .modal-content,
+#blotterProcessModal .modal-content,
+#residencyProcessModal .modal-content {
+    max-width: 600px;
+    margin: 10% auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#visionMissionModal h2,
+#blotterProcessModal h2,
+#residencyProcessModal h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+#visionMissionModal h3,
+#blotterProcessModal h3,
+#residencyProcessModal h3 {
+    color: #4CAF50;
+    margin-top: 15px;
+}
+
+#visionMissionModal ul,
+#visionMissionModal ol,
+#blotterProcessModal ul,
+#blotterProcessModal ol,
+#residencyProcessModal ul,
+#residencyProcessModal ol {
+    margin-left: 30px;
+    line-height: 1.6;
+}
+
+#visionMissionModal li,
+#blotterProcessModal li,
+#residencyProcessModal li {
+    margin-bottom: 10px;
+}
+
+#visionMissionModal p,
+#blotterProcessModal p,
+#residencyProcessModal p {
+    margin-bottom: 15px;
+}
+
+#visionMissionModal strong,
+#blotterProcessModal strong,
+#residencyProcessModal strong {
+    color: #4CAF50;
+}
+
+/* Vision and Mission Modal Enhancements - Dark Theme Optimization */
+#visionMissionModal .modal-content {
+    background-color: var(--secondary-black);
+    color: var(--text-color);
+    max-width: 900px;
+    width: 90%;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+#visionMissionModal .vision-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: var(--text-color);
+}
+
+#visionMissionModal .vision-header,
+#visionMissionModal .mission-header,
+#visionMissionModal .values-header,
+#visionMissionModal .goals-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+#visionMissionModal h2,
+#visionMissionModal h3,
+#visionMissionModal h4 {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+#visionMissionModal .vision-icon,
+#visionMissionModal .mission-icon,
+#visionMissionModal .values-icon,
+#visionMissionModal .goals-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(187, 134, 252, 0.2);
+    border-radius: 50%;
+}
+
+#visionMissionModal .vision-icon i,
+#visionMissionModal .mission-icon i,
+#visionMissionModal .values-icon i,
+#visionMissionModal .goals-icon i {
+    color: var(--accent-color);
+    font-size: 24px;
+}
+
+#visionMissionModal blockquote {
+    font-style: italic;
+    font-size: 1.1rem;
+    border-left: 4px solid var(--accent-color);
+    padding-left: 15px;
+    margin: 20px 0;
+    color: var(--text-color);
+    opacity: 0.9;
+    background-color: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+#visionMissionModal .mission-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+#visionMissionModal .mission-pillar {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: var(--text-color);
+}
+
+#visionMissionModal .mission-pillar:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#visionMissionModal .mission-pillar i {
+    font-size: 36px;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+#visionMissionModal .mission-pillar h4 {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+#visionMissionModal .mission-pillar p {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+#visionMissionModal .core-values .values-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+#visionMissionModal .value-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    color: var(--text-color);
+}
+
+#visionMissionModal .value-item:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#visionMissionModal .value-item i {
+    font-size: 30px;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+#visionMissionModal .value-item h4 {
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+#visionMissionModal .value-item p {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+#visionMissionModal .strategic-goals {
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#visionMissionModal .strategic-goals ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#visionMissionModal .strategic-goals li {
+    position: relative;
+    padding: 15px 15px 15px 50px;
+    background-color: rgba(187, 134, 252, 0.1);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#visionMissionModal .strategic-goals li::before {
+    content: '✓';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0.8;
+}
+
+#visionMissionModal .strategic-goals li:hover {
+    background-color: rgba(187, 134, 252, 0.2);
+    transform: translateX(10px);
+}
+
+#visionMissionModal .strategic-goals .goals-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+#visionMissionModal .strategic-goals .goals-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(187, 134, 252, 0.2);
+    border-radius: 50%;
+}
+
+#visionMissionModal .strategic-goals .goals-icon i {
+    color: var(--accent-color);
+    font-size: 24px;
+}
+
+
+/*display error message */
+
+/* Error message styling */
+/* Only error message styling shown for brevity */
+.error-msg {
+    color: #ff4d4f;
+    background: #2d1a1a;
+    border: 1px solid #ff4d4f;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+.error-msg.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+    
+
+
+
+
+/* Responsive adjustments for strategic goals */
+@media screen and (max-width: 768px) {
+    #visionMissionModal .strategic-goals li {
+        padding: 12px 12px 12px 40px;
+        font-size: 0.9rem;
+    }
+
+    #visionMissionModal .strategic-goals li::before {
+        font-size: 20px;
+        left: 10px;
+    }
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    #visionMissionModal .mission-pillars,
+    #visionMissionModal .core-values .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #visionMissionModal .modal-content {
+        width: 95%;
+        margin: 5% 2.5%;
+        padding: 20px;
+    }
+
+    #visionMissionModal .mission-pillars,
+    #visionMissionModal .core-values .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #visionMissionModal .vision-header,
+    #visionMissionModal .mission-header,
+    #visionMissionModal .values-header,
+    #visionMissionModal .goals-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #visionMissionModal .vision-icon,
+    #visionMissionModal .mission-icon,
+    #visionMissionModal .values-icon,
+    #visionMissionModal .goals-icon {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #visionMissionModal .modal-content {
+        padding: 15px;
+    }
+
+    #visionMissionModal blockquote {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    #visionMissionModal .mission-pillar,
+    #visionMissionModal .value-item {
+        padding: 15px;
+    }
+}
+
+#blotterProcessModal .blotter-process {
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#blotterProcessModal h3 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#blotterProcessModal .blotter-process ul,
+#blotterProcessModal .blotter-process ol {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#blotterProcessModal .blotter-process li {
+    position: relative;
+    padding: 15px 15px 15px 50px;
+    background-color: rgba(187, 134, 252, 0.1);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#blotterProcessModal .blotter-process li::before {
+    content: '📋';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-size: 24px;
+    opacity: 0.8;
+}
+
+#blotterProcessModal .blotter-process li:hover {
+    background-color: rgba(187, 134, 252, 0.2);
+    transform: translateX(10px);
+}
+
+#blotterProcessModal .blotter-process strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+#blotterProcessModal .blotter-process p {
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+#blotterProcessModal .important-notes {
+    background-color: rgba(187, 134, 252, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+#blotterProcessModal .important-notes h3 {
+    color: var(--accent-color);
+    border-bottom: none;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+#blotterProcessModal .important-notes ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#blotterProcessModal .important-notes li {
+    position: relative;
+    padding-left: 25px;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+#blotterProcessModal .important-notes li::before {
+    content: '⚠️';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 18px;
+}
+
+/* Responsive adjustments for Blotter Process */
+@media screen and (max-width: 768px) {
+    #blotterProcessModal .blotter-process li {
+        padding: 12px 12px 12px 40px;
+        font-size: 0.9rem;
+    }
+
+    #blotterProcessModal .blotter-process li::before {
+        font-size: 20px;
+        left: 10px;
+    }
+
+    #blotterProcessModal .important-notes {
+        padding: 10px;
+    }
+}
+
+#residencyProcessModal .residency-process {
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#residencyProcessModal h3 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#residencyProcessModal .residency-process ul,
+#residencyProcessModal .residency-process ol {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#residencyProcessModal .residency-process li {
+    position: relative;
+    padding: 15px 15px 15px 50px;
+    background-color: rgba(187, 134, 252, 0.1);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    color: var(--text-color);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+#residencyProcessModal .residency-process li::before {
+    content: '🏠';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent-color);
+    font-size: 24px;
+    opacity: 0.8;
+}
+
+#residencyProcessModal .residency-process li:hover {
+    background-color: rgba(187, 134, 252, 0.2);
+    transform: translateX(10px);
+}
+
+#residencyProcessModal .residency-process strong {
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 5px;
+}
+
+#residencyProcessModal .residency-process p {
+    color: var(--text-color);
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+#residencyProcessModal .additional-info {
+    background-color: rgba(187, 134, 252, 0.1);
+    border-left: 4px solid var(--accent-color);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+#residencyProcessModal .additional-info h3 {
+    color: var(--accent-color);
+    border-bottom: none;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+#residencyProcessModal .additional-info ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#residencyProcessModal .additional-info li {
+    position: relative;
+    padding-left: 25px;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+#residencyProcessModal .additional-info li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 18px;
+}
+
+/* Responsive adjustments for Residency Process */
+@media screen and (max-width: 768px) {
+    #residencyProcessModal .residency-process li {
+        padding: 12px 12px 12px 40px;
+        font-size: 0.9rem;
+    }
+
+    #residencyProcessModal .residency-process li::before {
+        font-size: 20px;
+        left: 10px;
+    }
+
+    #residencyProcessModal .additional-info {
+        padding: 10px;
+    }
+} 

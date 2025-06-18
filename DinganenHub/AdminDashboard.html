@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Barangay Dinganen Dashboard</title>
+    <link rel="stylesheet" href="Assets/Style/AdminDashboard.css" />
+    <link rel="stylesheet" href="Assets/Style/DropdownDesign/Dropdown.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- sidebar.html -->
+        <aside class="sidebar">
+            <img src="Picture1.png" class="sidebar-picture" >
+            <div class="sidebar-title"><B>DinganenHub</B></div>
+            <nav>
+                <ul>
+                    <li onclick="window.location.href='AdminDashboard.html'" class="active"><i class="fa fa-tachometer-alt"></i> Dashboard</li>
+                    <li class="dropdown">
+                        <i class="fa fa-file-alt"></i> 
+                        <span>Residential Details</span>
+                        <i class="fa fa-chevron-down dropdown-arrow"></i>
+                        <ul class="dropdown-content">
+                            <li onclick="window.location.href='ResidentData/Record_Resident.php'">
+                                <a><i class="fa fa-address-card"></i> Record Residential Details</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-certificate"></i> Certificate</a>
+                            </li>
+                            <li onclick="window.location.href='ResidentData/ResidentRecord.php'">
+                                <a><i class="fa fa-id-badge"></i> Resident Record</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-database"></i> Backup</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <i class="fa fa-user"></i> 
+                        <span>Blotter Management</span>
+                        <i class="fa fa-chevron-down dropdown-arrow"></i>
+                        <ul class="dropdown-content">
+                            <li onclick="window.location.href='BlotterManagement/Record_blotter.php'">
+                                <a><i class="fa fa-pencil-alt"></i> Record Blotter</a>
+                            </li>
+                            <li onclick="window.location.href='BlotterManagement/Viewblotter.php'">
+                                <a><i class="fa fa-folder-open"></i> View Blotter</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-user-check"></i> Summon</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-database"></i> Backup</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><i class="fa fa-bullhorn"></i> Announcement</li>
+                    <li class="dropdown">
+                        <i class="fa fa-user"></i> 
+                        <span>Account Details</span>
+                        <i class="fa fa-chevron-down dropdown-arrow"></i>
+                        <ul class="dropdown-content">
+                            <li onclick="window.location.href='AccountDetails/AccountRegistration.php'">
+                                <a><i class="fa fa-user-plus"></i> User Registration</a>
+                            </li>
+                            <li onclick="window.location.href='AccountDetails/AccountView.php'">
+                                <a><i class="fa fa-address-book"></i> Account List</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-history"></i> Activity Logs</a>
+                            </li>
+                            <li>
+                                <a href=""><i class="fa fa-database"></i> Backup</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="logout"><i class="fa fa-sign-out-alt"></i> Logout</li>
+                </ul>
+
+                <script>
+                    // Logout function clears static credentials and redirects user
+                    function logout() {
+                    // Remove static admin credentials from localStorage (adjust key name if different)
+                    localStorage.removeItem('adminCredentials');
+                    // Redirect to login page (adjust path as per your app)
+                    window.location.href = 'index.php';
+                    }
+                    // Attach click event to logout <li>
+                    document.addEventListener('DOMContentLoaded', () => {
+                    const logoutElement = document.querySelector('li.logout');
+                    if (logoutElement) {
+                        logoutElement.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        logout();
+                        });
+                    }
+                    });
+                </script>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>DASHBOARD</h1>
+            </header>
+            <section class="admin-section">
+                <div class="admin-info">
+                    <h2>ADMINISTRATOR</h2>
+                    <p>Barangay Dinganen</p>
+                    <span class="subtext">Municipality of Buldon, Maguindanao</span>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa fa-users"></i></div>
+                        <div class="stat-label">Total Population</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa fa-male"></i></div>
+                        <div class="stat-label">Male</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa fa-female"></i></div>
+                        <div class="stat-label">Female</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa fa-blind"></i></div>
+                        <div class="stat-label">Senior</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa fa-wheelchair"></i></div>
+                        <div class="stat-label">PWD</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa fa-child"></i></div>
+                        <div class="stat-label">Child</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa fa-user"></i></div>
+                        <div class="stat-label">Adult</div>
+                        <div class="stat-value">0</div>
+                    </div>
+                </div>
+            </section>
+            <section class="officials-section">
+                <h3>Current Barangay Official</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fullname</th>
+                            <th>Brgy. Position</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Rober L. Milson</td>
+                            <td>Brgy. Captain</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="announcement-section">
+                <h3>Barangay Announcement</h3>
+                <div class="announcement-card">
+                    <p><strong>What:</strong> Barangay Meeting</p>
+                    <p><strong>When:</strong> August 9, 2005</p>
+                    <p><strong>Where:</strong> Barangay Hall</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="Assets/JS/dropdown.js"></script>
+</body>
+</html>

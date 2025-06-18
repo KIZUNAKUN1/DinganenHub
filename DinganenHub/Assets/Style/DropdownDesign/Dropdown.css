@@ -1,0 +1,327 @@
+/* ============================================
+   SIDEBAR STYLES - DinganenHub
+   Original Sidebar Design with Enhanced Dropdowns
+   ============================================ */
+
+/* Sidebar Container */
+.sidebar {
+    width: 250px;
+    background-color: #1a252f; /* Darker blue-gray */
+    color: #ecf0f1;
+    padding: 20px 0;
+    min-height: 100vh;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: visible; /* Changed to allow dropdown overflow */
+}
+
+/* Sidebar Header */
+.sidebar-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 15px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    transition: transform 0.3s ease;
+    margin-bottom: 50px;
+}
+
+.sidebar-picture:hover {
+    transform: scale(1.05);
+}
+
+.sidebar-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* Navigation */
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    padding: 15px 25px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #bdc3c7; /* Light gray text */
+}
+
+.sidebar nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 30px;
+    color: #ecf0f1; /* Brighter text on hover */
+}
+
+.sidebar nav ul li.active {
+    background-color: #c07a54; /* Darker orange */
+    color: #fff; /* White text instead of dark */
+    border-left: 4px solid #fff;
+}
+
+.sidebar nav ul li i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #bdc3c7; /* Light gray icons */
+    transition: all 0.3s ease;
+}
+
+.sidebar nav ul li:hover i {
+    color: #ecf0f1; /* Brighter on hover */
+    transform: scale(1.1);
+}
+
+.sidebar nav ul li.active i {
+    color: #fff; /* White icons for active state */
+}
+
+/* Dropdown Button */
+li.dropdown {
+    position: relative;
+    cursor: pointer;
+    color: #bdc3c7; /* Light gray text */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+}
+
+li.dropdown:hover {
+    color: #ecf0f1; /* Brighter on hover */
+}
+
+li.dropdown span {
+    flex: 1;
+    color: inherit; /* Inherit color from parent */
+}
+
+li.dropdown i.dropbtn {
+    color: #fff;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+li.dropdown.show {
+    background-color: rgba(255, 255, 255, 0.03); /* Very subtle highlight */
+}
+
+/* Dropdown Arrow */
+.dropdown-arrow {
+    margin-left: auto;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 12px;
+    color: #bdc3c7; /* Light gray arrow */
+}
+
+.dropdown:hover .dropdown-arrow {
+    color: #ecf0f1; /* Brighter on hover */
+}
+
+.dropdown.show .dropdown-arrow {
+    transform: rotate(180deg);
+    color: #ecf0f1; /* Brighter when open */
+}
+
+/* Dropdown content - hidden by default */
+.dropdown-content {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background-color: #0f1a24; /* Even darker shade */
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    list-style: none;
+    color: #ecf0f1; /* Match sidebar text color */
+    visibility: hidden;
+    transform-origin: top;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    z-index: 10;
+}
+
+/* Show dropdown when active */
+li.dropdown.show .dropdown-content {
+    max-height: 500px;
+    opacity: 1;
+    padding: 8px 0;
+    visibility: visible;
+}
+
+/* Dropdown content items */
+.dropdown-content li {
+    padding: 12px 16px 12px 40px;
+    list-style: none;
+    color: #ecf0f1; /* Light text color */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    transform: translateX(-10px);
+    position: relative;
+    overflow: hidden; /* For ripple effect */
+}
+
+/* Animate dropdown items when shown */
+.dropdown.show .dropdown-content li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.dropdown-content li i {
+    color: #bdc3c7; /* Light gray icons in dropdown */
+    min-width: 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.dropdown-content li a {
+    color: #ecf0f1; /* Light link color */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: normal;
+    transition: color 0.2s;
+    word-wrap: break-word;
+    position: relative;
+    z-index: 1;
+}
+
+.dropdown-content li:hover {
+    background-color: #c07a54; /* Darker orange hover */
+    color: #fff; /* White text on hover */
+    padding-left: 45px;
+}
+
+.dropdown-content li:hover i,
+.dropdown-content li:hover a {
+    color: #fff; /* White text on hover */
+}
+
+/* Pushed down elements animation */
+.pushed-down {
+    position: relative;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus styles for keyboard navigation */
+.dropdown-content a:focus {
+    outline: 2px solid #c07a54;
+    outline-offset: -2px;
+    background-color: rgba(192, 122, 84, 0.2);
+    border-radius: 4px;
+}
+
+/* Logout button special styling */
+.sidebar nav ul li:last-child {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+}
+
+.sidebar nav ul li:last-child:hover {
+    background-color: rgba(231, 76, 60, 0.3);
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        padding: 0;
+        min-height: unset;
+        position: relative;
+    }
+    
+    .sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .sidebar nav ul li {
+        flex: 1 1 120px;
+        justify-content: center;
+        padding: 10px 5px;
+        font-size: 0.95rem;
+        color: #fff;
+        text-align: center;
+    }
+    
+    .sidebar nav ul li i {
+        color: #bdc3c7; /* Ensure light icons on mobile too */
+        margin-right: 5px;
+    }
+    
+    /* Mobile dropdown positioning */
+    .dropdown-content {
+        position: fixed;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
+        background-color: #0f1a24; /* Match desktop dropdown color */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Darker shadow */
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+    
+    .dropdown.show .dropdown-content {
+        padding: 10px 0;
+    }
+    
+    /* Adjust sidebar header for mobile */
+    .sidebar-picture {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .sidebar-title {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    
+    /* Prevent body scroll on mobile when dropdown is open */
+    body.dropdown-open {
+        overflow: hidden;
+    }
+}
+
+/* Accessibility improvements */
+.dropdown-content[aria-expanded="true"] {
+    visibility: visible;
+}
+
+.dropdown-content[aria-expanded="false"] {
+    visibility: hidden;
+}
+
+/* Ensure dropdown content appears above other elements */
+.sidebar nav ul li.dropdown {
+    z-index: 10;
+}
+
+.sidebar nav ul li.dropdown.show {
+    z-index: 20;
+}

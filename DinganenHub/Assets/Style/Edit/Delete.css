@@ -1,0 +1,129 @@
+.confirm-modal {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease;
+}
+
+.confirm-icon {
+    font-size: 48px;
+    color: #f59e0b;
+    margin-bottom: 20px;
+}
+
+.confirm-modal h3 {
+    margin: 0 0 15px 0;
+    color: #1f2937;
+    font-size: 24px;
+}
+
+.confirm-modal p {
+    margin: 10px 0;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.warning-text {
+    color: #dc2626;
+    font-size: 14px;
+    background-color: #fef2f2;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 15px 0;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.btn-danger {
+    background-color: #dc2626;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #b91c1c;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.delete-loading {
+    padding: 40px;
+    text-align: center;
+}
+
+.delete-loading .spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+.delete-success {
+    padding: 40px;
+    text-align: center;
+}
+
+.delete-success i {
+    font-size: 64px;
+    color: #10b981;
+    margin-bottom: 20px;
+}
+
+.delete-error {
+    padding: 40px;
+    text-align: center;
+}
+
+.delete-error i {
+    font-size: 64px;
+    color: #dc2626;
+    margin-bottom: 20px;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Row deletion animation */
+.deleting-row {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+}

@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #f4f6fb;
+    color: #1a1a1a;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+
+.main-content {
+    flex: 1;
+    padding: 40px 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    overflow: auto;
+    color: #1a1a1a;
+}
+
+
+
+.table-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(36, 96, 122, 0.08);
+    padding: 24px;
+    margin-top: 18px;
+    overflow-x: auto;
+   
+}
+
+
+#residentsTable tbody tr:hover {
+  background: #f1f7fa;
+  margin-right: 5rem;
+}
+
+#residentsTable th {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+#residentsTable th, #residentsTable td {
+    padding: 12px 18px; /* Adds vertical and horizontal spacing */
+    text-align: left;   /* Optional: aligns text to the left for readability */
+    white-space: nowrap; /* Prevents text from wrapping, optional */
+}
+
+
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 7px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-view {
+  background: #e49c74;
+  color: #fff;
+}
+
+
+.btn-delete {
+  background: #ff4d4f;
+  color: #fff;
+}
+
+.btn-print {
+  background: orange;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  background-color: skyblue;
+}
+
+
+.view-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(36, 96, 122, 0.08);
+  padding: 24px;
+  margin-top: 18px;
+  overflow-x: auto;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #1a1a1a;
+  position: relative;
+}
+
+/* Each row contains two form groups */
+.form-row {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Each label-value pair */
+.form-group {
+  flex: 1 1 220px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  min-width: 250px;
+  max-width: 400px;
+}
+
+/* Label styling */
+.form-group label {
+  font-weight: 700;
+  min-width: 110px;
+  color: #24607a;
+}
+
+/* Value styling */
+.form-group span {
+  font-weight: 400;
+  color: #333;
+  white-space: normal;
+}
+
+
+.button-row {
+  display: flex;
+  /* Push the button to the right */
+  margin-left: auto;
+  /* Optional: add some top margin for spacing */
+  margin-top: 1.5rem;
+}
+
+/* Alternatively, if you want to keep .button-row full width and push button right */
+.button-row {
+  display: flex;
+  justify-content: flex-end; /* aligns children to right */
+  margin-top: 1.5rem;
+}
+
+.btn-update {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  z-index: 10; /* above form content */
+}
+
+.btn-update:hover {
+  background-color: #45a049;
+}
+
+
+
+@media (max-width: 900px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+    
+    .main-content {
+        padding: 24px 6px;
+    }
+
+    .view-container {
+    height: auto;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .form-group {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+    .table-container {
+    padding: 12px;
+  }
+  #residentsTable th, #residentsTable td {
+    padding: 10px 6px;
+    font-size: 0.95rem;
+  }
+
+}

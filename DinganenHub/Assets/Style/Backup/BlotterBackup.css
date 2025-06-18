@@ -1,0 +1,620 @@
+/* Backup Page Specific Styles */
+
+.backup-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e0e6ed;
+}
+
+.backup-header h1 {
+    color: #24607a;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.backup-header i {
+    color: #24607a;
+    font-size: 2rem;
+}
+
+/* Backup Cards Grid */
+.backup-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.backup-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e6ed;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.backup-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.card-icon.quick-backup {
+    background: linear-gradient(135deg, #24607a, #3498db);
+}
+
+.card-icon.custom-backup {
+    background: linear-gradient(135deg, #e49c74, #f39c12);
+}
+
+.card-icon.scheduled-backup {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+}
+
+.card-title h3 {
+    color: #1a1a1a;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.card-title p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.card-content {
+    color: #555;
+    line-height: 1.5;
+}
+
+.card-content > p {
+    margin: 0 0 20px 0;
+}
+
+/* Excel Format Display */
+.excel-info {
+    margin-bottom: 24px;
+}
+
+.excel-format {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #f8fff8;
+    border: 2px solid #217346;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.excel-format i {
+    color: #217346;
+    font-size: 24px;
+}
+
+.excel-format span {
+    color: #217346;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.format-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0;
+    padding: 0 4px;
+}
+
+/* Filter Section */
+.filter-section {
+    margin-bottom: 24px;
+}
+
+.filter-group {
+    margin-bottom: 16px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.date-input {
+    padding: 8px 12px;
+    border: 2px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: #24607a;
+}
+
+.status-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #e0e6ed;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #fff;
+    transition: border-color 0.2s;
+}
+
+.status-select:focus {
+    outline: none;
+    border-color: #24607a;
+}
+
+/* Schedule Options */
+.schedule-options {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.schedule-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid #e0e6ed;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.schedule-option:hover {
+    border-color: #27ae60;
+    background: #f8fff8;
+}
+
+.schedule-option input[type="radio"] {
+    margin-right: 8px;
+    accent-color: #27ae60;
+}
+
+/* Backup Buttons */
+.backup-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.backup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.backup-btn i {
+    font-size: 14px;
+}
+
+.backup-btn.primary {
+    background: #24607a;
+    color: #fff;
+}
+
+.backup-btn.primary:hover:not(:disabled) {
+    background: #1e4f65;
+    transform: translateY(-1px);
+}
+
+.backup-btn.secondary {
+    background: #e49c74;
+    color: #fff;
+}
+
+.backup-btn.secondary:hover:not(:disabled) {
+    background: #d88659;
+    transform: translateY(-1px);
+}
+
+.backup-btn.tertiary {
+    background: #27ae60;
+    color: #fff;
+}
+
+.backup-btn.tertiary:hover:not(:disabled) {
+    background: #219a52;
+    transform: translateY(-1px);
+}
+
+/* Recent Backups Section */
+.recent-backups {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e6ed;
+    margin-bottom: 24px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e6ed;
+}
+
+.section-header h2 {
+    color: #1a1a1a;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    color: #666;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #e9ecef;
+    color: #333;
+}
+
+/* Backup History */
+.backup-history {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.backup-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.backup-item:hover {
+    border-color: #24607a;
+    background: #f8fbff;
+}
+
+.backup-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.backup-file-icon {
+    font-size: 24px;
+    width: 40px;
+    text-align: center;
+    color: #217346;
+}
+
+.backup-details h4 {
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.backup-details p {
+    color: #666;
+    font-size: 0.875rem;
+    margin: 0 0 4px 0;
+}
+
+.backup-date {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+.backup-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    padding: 8px 12px;
+    border: 1px solid #e0e6ed;
+    border-radius: 6px;
+    background: #fff;
+    color: #666;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.action-btn.download:hover {
+    background: #24607a;
+    color: #fff;
+    border-color: #24607a;
+}
+
+.action-btn.delete:hover {
+    background: #dc3545;
+    color: #fff;
+    border-color: #dc3545;
+}
+
+/* Storage Info */
+.storage-info {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e6ed;
+}
+
+.storage-card {
+    max-width: 400px;
+}
+
+.storage-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.storage-header i {
+    color: #24607a;
+    font-size: 20px;
+}
+
+.storage-header h3 {
+    color: #1a1a1a;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.storage-bar {
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.storage-used {
+    height: 100%;
+    background: linear-gradient(90deg, #24607a, #3498db);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.storage-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.storage-percentage {
+    font-weight: 600;
+    color: #24607a;
+}
+
+/* Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid #24607a;
+    padding: 16px;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    animation: slideIn 0.3s ease-out;
+}
+
+.notification.success {
+    border-left-color: #27ae60;
+}
+
+.notification.error {
+    border-left-color: #e74c3c;
+}
+
+.notification.info {
+    border-left-color: #3498db;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.notification-content i {
+    font-size: 18px;
+}
+
+.notification.success .notification-content i {
+    color: #27ae60;
+}
+
+.notification.error .notification-content i {
+    color: #e74c3c;
+}
+
+.notification.info .notification-content i {
+    color: #3498db;
+}
+
+.notification-content span {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.notification-close {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.notification-close:hover {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.no-backups {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.no-backups i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: #ddd;
+}
+
+.no-backups p {
+    font-size: 16px;
+    margin: 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .backup-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .backup-card {
+        padding: 20px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .schedule-options {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .schedule-option {
+        justify-content: flex-start;
+    }
+    
+    .backup-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .backup-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .date-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .date-inputs span {
+        text-align: center;
+        font-weight: 500;
+    }
+    
+    .notification {
+        right: 10px;
+        left: 10px;
+        min-width: unset;
+    }
+}
